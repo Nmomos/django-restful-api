@@ -1,0 +1,18 @@
+{% extends 'adminlte/base.html' %}
+
+{% block title %}Django Samples | Home{% endblock %}
+
+{% block page_description %}
+    <h2>Django Sumples Home</h2>
+{% endblock page_description %}
+
+{% block content %}
+    <p>あなたのIPアドレスは <strong>{{ ip }}</strong> で、 あなたは恐らく今 <strong>{{ country }}</strong> に居ます。</p>
+    <p>このページは現在キャッシュされていま{{ is_cached|yesno:"す,せん" }}。 </p>
+    <iframe width="600"
+            height="450"
+            frameborder="0"
+            style="border:0"
+            src="https://www.google.com/maps/embed/v1/view?center={{ latitude }},{{ longitude }}&zoom=8&key={{ api_key }}"
+            allowfullscreen></iframe>
+{% endblock %}

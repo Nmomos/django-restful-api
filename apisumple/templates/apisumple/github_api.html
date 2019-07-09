@@ -1,0 +1,25 @@
+{% extends 'adminlte/base.html' %}
+
+{% block title %}Django Samples | GitHub API{% endblock %}
+
+{% block page_description %}
+    <h2>GitHub API Sumple</h2>
+{% endblock page_description %}
+
+{% block content %}
+    <form method="get">
+        <input type="text" name="username">
+        <button type="submit">GitHubを検索</button>
+    </form>
+    {% if search_result %}
+        {% if search_result.success %}
+            <p>
+                <strong>{{ search_result.name|default_if_none:search_result.login }}</strong> はPublicリポジトリを<strong>{{ search_result.public_repos }}</strong> 個保有しています！
+            </p>
+        {% else %}
+            <p><em>{{ search_result.message }}</em></p>
+        {% endif %}
+        <p>API 実行可能数: {{ search_result.rate.remaining }}/{{ search_result.rate.limit }}</p>
+    {% endif %}
+
+{% endblock %}
