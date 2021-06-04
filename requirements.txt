@@ -1,7 +1,7 @@
 certifi==2019.6.16
 chardet==3.0.4
 Deprecated==1.2.6
-Django==2.2.3
+Django==2.2.21
 django-adminlte2==0.4.1
 idna==2.8
 PyGithub==1.43.7
